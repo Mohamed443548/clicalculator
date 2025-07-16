@@ -1,0 +1,62 @@
+def add(x, y):
+input("Function to add two numbers")
+return (x + y)
+
+def subtract(x, y):
+input("Function to subtract two numbers")
+return(x - y)
+
+def multiply(x, y):
+input("Function to multiply two numbers")
+return (x * y)
+
+def divide(x, y):
+input("Function to divide two numbers")
+if y == 0:
+return ("Error! Division by zero.")
+return x / y
+
+def get_number_input(prompt):
+"Helper function to handle number input with validation."
+while True:
+try:
+return float(input(prompt))
+except ValueError:
+print("Invalid input! Please enter a valid number.")
+
+def main():
+"Main function to run the calculator."
+print("Welcome to the Command-Line Calculator!")
+
+while True:
+print("\nSelect operation:")
+print("1. Add (+)")
+print("2. Subtract (-)")
+print("3. Multiply (*)")
+print("4. Divide (/)")
+print("5. Exit (EXIT)")
+
+# Taking user choice
+choice = input("\nEnter choice (1/2/3/4/E): ").strip().lower()
+
+if choice == 'E':
+print("Exiting the calculator. See you next task!")
+break
+
+if choice in ['1', '2', '3', '4']:
+num1 = get_number_input("Enter first number: ")
+num2 = get_number_input("Enter second number: ")
+
+if choice == '1':
+print(f"{num1} + {num2} = {add(num1, num2)}")
+elif choice == '2':
+print(f"{num1} - {num2} = {subtract(num1, num2)}")
+elif choice == '3':
+print(f"{num1} * {num2} = {multiply(num1, num2)}")
+elif choice == '4':
+print(f"{num1} / {num2} = {divide(num1, num2)}")
+else:
+print("Invalid choice! Please select a valid option.")
+
+if _name_ == "_main_":
+main()
